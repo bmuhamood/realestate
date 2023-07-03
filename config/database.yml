@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: Hussein2019
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: proPalm_development
+  username: postgres
+  password: Hussein2019
+
+test:
+  <<: *default
+  database: proPalm_test
+
+production:
+  <<: *default
+  database: proPalm_production
+  username: proPalm
+  password: <%= ENV["PROPALM_DATABASE_PASSWORD"] %>
